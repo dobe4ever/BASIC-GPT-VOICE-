@@ -79,7 +79,21 @@
 
 # #     def __init__(self, user_id, username, first_name, btc_dep_addr, usd_credit, total_spent, model, role, content):
 # #         self.user_id = user_id
-# #         self.username = username
+
+# # Example usage:
+# user_id = 548104065
+# user = UserData(user_id)
+# print(user.get_system_message())  # Access system message content
+# print(user.get_recent_messages(2))  # Access the last 2 messages
+# user.add_message(role="user", content="Hello!")
+# user.add_message("assistant", "Hi there! How can I assist you today?")
+# print(user.get_user_data("username"))  # Access username
+# user.update_user_data("usd_credit", 10.0)  # Update USD credit
+
+
+
+
+#         self.username = username
 # #         self.first_name = first_name
 # #         self.btc_dep_addr = btc_dep_addr
 # #         self.usd_credit = usd_credit
@@ -149,3 +163,19 @@
 
 # # print(user.get_data("username"))  # Access username
 # # user.get_data("usd_credit", 10.0)  # Update USD credit
+
+
+
+# import os
+# import json
+
+
+# def userdata(userid, key):
+#     user_path = os.path.join("persistent/users/", f"{userid}.json")
+#     if os.path.exists(user_path):
+#         with open(user_path, "r") as f:
+#             userdata=json.load(f)
+#             return userdata[0][key]
+
+
+# print(userdata(548104065, "btc_dep_addr"))
