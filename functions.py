@@ -7,7 +7,7 @@ functions = [
             "properties": {
                 "instructions": {
                     "type": "string",
-                    "description": "The instructions that ChatGPT will see as the top message in every new user interaction (aka the system message)"
+                    "description": "The instructions that ChatGPT will see as the top message in every user interaction (aka the system message)"
                 }
             },
             "required": ["instructions"]

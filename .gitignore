@@ -4,6 +4,7 @@ replit.nix
 test.py
 misc/
 downloads/
+persistent/
 .pythonlibs/
 
 # Byte-compiled / optimized / DLL files
