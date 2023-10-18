@@ -4,7 +4,6 @@ from threading import Thread
 import requests
 from flask import Flask
 from CONSTANTS import BOT_TOKEN
-
 app = Flask(__name__)
 
 @app.route('/')

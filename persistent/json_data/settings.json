@@ -1,0 +1,33 @@
+{
+    "userid": user.id,
+    "username": user.username,
+    "publicname": user.first_name,
+    "btc_dep_addr": "btc_dep_addr",   
+    "model": "gpt-3.5-turbo",
+    "temperature": 1,
+    "max_tokens": 2048,
+    "usd_credit": 1.0,
+    "total_spent": 0.0, 
+}
+
+
+
+
+
+"""    Welcome to Your Account Dashboard!
+You can manage your account using these commands:
+
+/accountinfo - View your account information
+/addcredit - Add credit to your account
+/transactionhistory - View your transaction history
+/editprofile - Edit your profile
+/settings - Adjust bot settings
+
+Account Information:
+Username: dobe4ever
+BTC Deposit Address: N/A
+Account Balance: $0.98
+Total Spent: $0.02
+AI Model: gpt-3.5-turbo
+
+To add credit, use /addcredit amount"""

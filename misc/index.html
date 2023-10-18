@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Feature Showcase</title>
+    <style>
+        body {font-family: Arial, sans-serif; padding:20px;}
+        #displayArea {margin-top:20px; padding:10px; border:1px solid #000;}
+    </style>
+</head>
+<body>
+    <h1>Welcome to JavaScript Feature Showcase</h1>
+    <label for="dropdown">Choose a Feature:</label>
+    <select id="dropdown" onChange="displayFeature()">
+        <option value="">Select...</option>
+        <option value="feature1">JavaScript Feature 1</option>
+        <option value="feature2">JavaScript Feature 2</option>
+        <option value="feature3">JavaScript Feature 3</option>
+    </select>
+    <div id="displayArea"></div>
+<script>
+    function displayFeature() {
+        var select = document.getElementById("dropdown");
+        var displayArea = document.getElementById("displayArea");
+        switch(select.value) {
+            case 'feature1':
+                displayArea.innerHTML = '<p>This is JavaScript Feature 1. You can replace this with any feature you want to showcase.</p>';
+                break;
+            case 'feature2':
+                displayArea.innerHTML = '<p>This is JavaScript Feature 2. You can replace this with any feature you want to showcase.</p>';
+                break;
+            case 'feature3':
+                displayArea.innerHTML = '<p>This is JavaScript Feature 3. You can replace this with any feature you want to showcase.</p>';
+                break;
+            default:
+                displayArea.innerHTML = '';
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>

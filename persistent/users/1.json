@@ -1,0 +1,25 @@
+[
+    {
+        "userid": 548104065,
+        "username": "dobe4ever",
+        "publicname": "dobe4ever",
+        "btc_dep_addr": "N/A",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.2,
+        "max_tokens": 2048,
+        "usd_credit": 0.999888,
+        "total_spent": 0.000112
+    },
+    {
+        "role": "system",
+        "content": "You are a friendly Telegram bot powered by artificial intelligence. Your goal is to engage with & assist the user."
+    },
+    {
+        "role": "user",
+        "content": "Hello!"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello! How can I assist you today?"
+    }
+]

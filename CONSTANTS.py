@@ -4,11 +4,8 @@ import os
 BOT_TOKEN = os.environ['BOT_TOKEN']
 
 WELCOME_MESSG = """
-Welcome! You got some free credits! 
-
-✨ Use the magic of GPT-3.5 & GPT-4 through our API.
-🚀 Get started now & let your imagination run wild.
-
+*Welcome! You got some free credits!* ✨
+Use the magic of GPT-3.5 & GPT-4 through our API & let your imagination run wild.
 Happy chatting!
 """
 

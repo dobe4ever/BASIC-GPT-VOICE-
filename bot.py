@@ -8,11 +8,10 @@ from telegram.ext import (
 Updater, CommandHandler, MessageHandler, Filters # type: ignore
 )
 from tg_utils import (
-is_new_user, add_credit_cmd, clear_context_cmd, 
-gpt35_turbo_0613_cmd, gpt35_turbo_16k_0613_cmd, gpt4_0613_cmd,
-gpt4_32k_0613_cmd, start_cmd, 
-custom_instructions_cmd, clicked_button, handle_voice, 
-handle_text
+start, is_new_user, add_credit, clear_context, 
+gpt35_turbo_16k, gpt35_turbo, gpt4_32k, gpt_4,
+custom_instructions, clicked_button, 
+handle_voice, handle_text
 )
 from CONSTANTS import BOT_TOKEN
 
@@ -26,43 +25,43 @@ def main():
     # Handle a new user
     dp.add_handler(MessageHandler(
         Filters.all, is_new_user), group=0)
+    
+    # Handle if the user clicked a button
+    dp.add_handler(MessageHandler(
+        Filters.text & ~Filters.command, clicked_button), group=1)
 
     # # Handle if the user has no credit
     # dp.add_handler(MessageHandler(
     #     Filters.all, has_no_credit), group=0)
 
-    # Handle if the user clicked a button
-    dp.add_handler(MessageHandler(
-        Filters.text & ~Filters.command, clicked_button), group=1)
-
     # handle setting commands
     dp.add_handler(CommandHandler(
-        "start", start_cmd), group=1)
+        "start", start), group=1)
     dp.add_handler(CommandHandler(
-        "add_credit", add_credit_cmd), group=1)
+        "add_credit", add_credit), group=1)
     dp.add_handler(CommandHandler(
-        "custom_instructions", custom_instructions_cmd), group=2)
-    dp.add_handler(CommandHandler(
-        "clear_context", clear_context_cmd), group=1)
+        "clear_context", clear_context), group=1)
     # handle model commands
     dp.add_handler(CommandHandler(
-        "gpt35_turbo_0613", gpt35_turbo_0613_cmd), group=1)
+        "gpt_4", gpt_4), group=1)
     dp.add_handler(CommandHandler(
-        "gpt35_turbo_16k_0613",gpt35_turbo_16k_0613_cmd), group=1)
+        "gpt_4_32k", gpt4_32k), group=1)
     dp.add_handler(CommandHandler(
-        "gpt4_0613", gpt4_0613_cmd), group=1)
+        "gpt35_turbo", gpt35_turbo), group=1)
     dp.add_handler(CommandHandler(
-        "gpt4_32k_0613", gpt4_32k_0613_cmd), group=1)
-
+        "gpt35_turbo_16k",gpt35_turbo_16k), group=1)
     
     # handle voice messages
     dp.add_handler(MessageHandler(
-        Filters.voice & ~Filters.text, handle_voice), group=3)
+        Filters.voice & ~Filters.text, handle_voice), group=2)
     
     # handle all other text messages
     dp.add_handler(MessageHandler(
-        Filters.text & Filters.entity & ~Filters.command, handle_text), group=3)
+        Filters.text & Filters.entity & ~Filters.command, handle_text), group=2)
 
+    # handle custom instructions last
+    dp.add_handler(CommandHandler(
+        "custom_instructions", custom_instructions), group=1)
 
     # Start the bot
     updater.start_polling()

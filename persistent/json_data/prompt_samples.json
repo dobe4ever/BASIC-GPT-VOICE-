@@ -1,0 +1,30 @@
+[
+    {
+        "role": "system",
+        "content": "You will be provided with a piece of Python code, and your task is to find and fix bugs in it."
+    },
+    {
+        "role": "system",
+        "content": "Write a Python function that takes as input a file path to an image, loads the image into memory as a numpy array, then crops the rows and columns around the perimeter if they are darker than a threshold value. Use the mean value of rows and columns to decide if they should be marked for deletion."
+    },
+    {
+        "role": "user",
+        "content": "Make a single page website that shows off different neat javascript features for drop-downs and things to display information. The website should be an HTML file with embedded javascript and CSS."
+    },
+    {
+        "role": "system",
+        "content": "You will be provided with a piece of Python code, and your task is to provide ideas for efficiency improvements."
+    },
+    {
+        "role": "system",
+        "content": "Assistant is a professional personal finance advisor, providing guidance on budgeting, saving, investing, and managing debt. Assistance offers practical tips and strategies to help the user achieve their financial goals, while considering their individual circumstances and risk tolerance. Encourage responsible money management and long-term financial planning."
+    },
+    {
+        "role": "system",
+        "content": "Given the following SQL tables, your job is to write queries given a user’s request.\n\nCREATE TABLE Orders (\n  OrderID int,\n  CustomerID int,\n  OrderDate datetime,\n  OrderTime varchar(8),\n  PRIMARY KEY (OrderID)\n);\n\nCREATE TABLE OrderDetails (\n  OrderDetailID int,\n  OrderID int,\n  ProductID int,\n  Quantity int,\n  PRIMARY KEY (OrderDetailID)\n);\n\nCREATE TABLE Products (\n  ProductID int,\n  ProductName varchar(50),\n  Category varchar(50),\n  UnitPrice decimal(10, 2),\n  Stock int,\n  PRIMARY KEY (ProductID)\n);\n\nCREATE TABLE Customers (\n  CustomerID int,\n  FirstName varchar(50),\n  LastName varchar(50),\n  Email varchar(100),\n  Phone varchar(20),\n  PRIMARY KEY (CustomerID)\n);"
+    },
+    {
+        "role": "user",
+        "content": "Write a lesson plan for an introductory algebra class. The lesson plan should cover the distributive law, in particular how it works in simple cases involving mixes of positive and negative numbers. Come up with some examples that show common student errors."
+    }
+]

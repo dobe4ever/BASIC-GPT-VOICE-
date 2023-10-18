@@ -43,8 +43,7 @@ def create_user(user):
     userdata = [
         {
             "userid": user.id,
-            "joined": datetime.datetime.now().strftime("%Y-%m-%d")
-,
+            "joined": datetime.datetime.now().strftime("%Y-%m-%d"),
             "username": user.username,
             "publicname": user.first_name,
             "btc_dep_addr": "N/A",   
@@ -64,20 +63,31 @@ def create_user(user):
 def calculate_cost(response_data):
     # Access necessary data from the response_data
     model = response_data['model']
+    print(f"model: {model}")
+    
     usage = response_data['usage']['total_tokens']
+    print(f"usage: {usage}")
+    
     if model == "gpt-3.5-turbo-0613":
-        cost = (usage / 1000) * 0.002 # Per 1k tokens
-    elif model == "gpt-3.5-turbo-16k-0613":
-        cost = (usage / 1000) * 0.004 # Per 1k tokens
+        cost = 0.002 # Per 1k tokens
+        
+    elif model == "gpt-3.5-turbo-16k":
+        cost = 0.004 # Per 1k tokens
+        
     elif model == "gpt-4-0613":
-        cost = (usage / 1000) * 0.06 # Per 1k tokens
-    elif model == "gpt-4-32k-0613":
-        cost = (usage / 1000) * 0.12 # Per 1k tokens
+        cost = 0.06 # Per 1k tokens
+        
+    elif model == "gpt-4-32k":
+        cost = 0.12 # Per 1k tokens
+        
     else:
         print("Cannot calculate cost: Model not found")
         return
+
+    total = (usage / 1000) * cost
+    print(total)
     # format for readablility
-    return "{:.8f}".format(cost)
+    return "{:.8f}".format(total)
 
 def update_balance(userid, cost):
     userdata = load_userdata(userid)
@@ -96,28 +106,29 @@ def update_balance(userid, cost):
 def dashboard_messg(userid):
     userdata=load_userdata(userid)
     return """
-    <b>Welcome to Your Account Dashboard!</b>
+    <b>Account Dashboard:</b>
 
     <b>Joined:</b> """ + userdata[0]['joined'] + """
     <b>User ID:</b> """ + str(userdata[0]['userid']) + """
     <b>Username:</b> """ + userdata[0]['username'] + """
     <b>AI Model:</b> """ + userdata[0]['model'] + """
-
     <b>Balance:</b> $""" + f"{userdata[0]['usd_credit']:.4f}" + """
     <b>Total Spent:</b> $""" + f"{userdata[0]['total_spent']:.4f}" + """
     <b>Deposit BTC:</b> /add_credit
 
     <b>Settings</b>:
     /custom_instructions - The system propmt
+    /creative - More diverse outputs
+    /deterministic - Good for logic tasks
     /clear_context - Delete conversation history
 
     <b>GPT-4 models</b>:
-    /gpt4_0613 - $0.06/1k tokens
-    /gpt4_32k_0613 - $0.12/1k tokens
+    /gpt_4 8k - $0.06/1k tokens
+    /gpt_4_32k - $0.12/1k tokens
 
     <b>GPT-3.5 models</b>:
-    /gpt35_turbo_0613 - $0.002/1K tokens
-    /gpt35_turbo_16k_0613 - $0.004/1K tokens
+    /gpt35_turbo  4k - $0.002/1K tokens
+    /gpt35_turbo_16k - $0.004/1K tokens
 
     <b>Feedback & Support</b>:
-    <a href="https://t.me/dobe4ever">✉️ @dobe4ever</a>"""
+    <a href="https://t.me/dobe4ever">💬 @dobe4ever</a>"""

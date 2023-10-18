@@ -1,0 +1,61 @@
+{
+    "gpt4": {
+        "Model": [
+            {
+                "Model": "gpt-4-0613",
+                "Description": "Cheapest gpt4",
+                "Limit": "8K context",
+                "Cost": "$0.06 / 1K tokens"
+            },
+            {
+                "Model": "gpt-4-32k-0613",
+                "Description": "Biggest gpt4.",
+                "Limit": "32K context",
+                "Cost": "$0.12 / 1K tokens"
+            }
+        ]
+    },
+    "gpt3": {
+        "Description": "GPT-3.5 Turbo models are capable and cost-effective.",
+        "Models": [           
+            {
+                "Model": "gpt-3.5-turbo-0613",
+                "Description": "Optimized for dialog.",
+                "Limit": "4K context",
+                "Cost": "$0.002 / 1K tokens"
+            },
+            {
+                "Model": "gpt-3.5-turbo-16k-0613",
+                "Description": "16k context.",
+                "Limit": "16K context",
+                "Cost": "$0.004 / 1K tokens"
+            },
+            {
+                "Model": "gpt-3.5-turbo-instruct",
+                "Description": "An Instruct model and only supports a 4K context window.",
+                "Limit": "4K context",
+                "Cost": "$0.002 / 1K tokens"
+            }
+        ]
+    }
+}
+
+import json
+
+# Load the JSON data from the file
+with open('persistent/json_data/pricing.json', 'r') as f:
+    data = json.load(f)
+
+# Access each item
+gpt4_8k_cost = data['gpt4']['Model'][0]['Cost']
+gpt4_32k_cost = data['gpt4']['Model'][1]['Cost']
+gpt3_description = data['gpt3']['Description']
+gpt3_turbo_cost = data['gpt3']['Models'][0]['Cost']
+gpt3_turbo_instruct_cost = data['gpt3']['Models'][1]['Cost']
+
+print(f"GPT-4 8K Cost: {gpt4_8k_cost}")
+print(f"GPT-4 32K Cost: {gpt4_32k_cost}")
+print(f"GPT-3 Description: {gpt3_description}")
+print(f"GPT-3 Turbo 16K Cost: {gpt3_turbo_cost}")
+print(f"GPT-3 Turbo Instruct 4K Cost: {gpt3_turbo_instruct_cost}")
+
